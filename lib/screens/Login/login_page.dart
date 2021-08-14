@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../Utils/ProjectColors.dart' as ProjectColors;
+
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -118,7 +121,7 @@ class LoginForm extends StatelessWidget {
                   child: ElevatedButton(
                     child: Text('Login'),
                     style: ElevatedButton.styleFrom(
-                        primary: Colors.indigo[900],
+                        primary: ProjectColors.indigo(),
                         padding: EdgeInsets.symmetric(vertical: 20)),
                     onPressed: () {
                       Navigator.of(context).pushNamed('/home');
@@ -224,7 +227,7 @@ class SignUpForm extends StatelessWidget {
                   child: ElevatedButton(
                     child: Text('SignUp'),
                     style: ElevatedButton.styleFrom(
-                        primary: Colors.indigo[900],
+                        primary: ProjectColors.indigo(),
                         padding: EdgeInsets.symmetric(vertical: 20)),
                     onPressed: () {
                       Navigator.of(context).pushNamed('/home');
