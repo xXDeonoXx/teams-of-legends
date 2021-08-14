@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../Utils/ProjectColors.dart' as ProjectColors;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,6 +14,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
+        backgroundColor: ProjectColors.darkerBlue(),
       ),
       body: Center(),
     );
