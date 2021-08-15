@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:teams_of_legends/screens/Find/find_page.dart';
 import 'package:teams_of_legends/screens/Home/home_page.dart';
+import 'package:teams_of_legends/screens/Invites/invites_page.dart';
 import 'package:teams_of_legends/screens/Login/login_page.dart';
 
 class RouteGenerator {
@@ -11,6 +13,12 @@ class RouteGenerator {
 
       case '/home':
         return MaterialPageRoute(builder: (_) => HomePage());
+
+      case '/find':
+        return MaterialPageRoute(builder: (_) => FindPage());
+
+      case '/invites':
+        return MaterialPageRoute(builder: (_) => InvitesPage());
 
       default:
         return _errorRoute();
