@@ -121,7 +121,7 @@ class LoginForm extends StatelessWidget {
                         primary: Colors.indigo[900],
                         padding: EdgeInsets.symmetric(vertical: 20)),
                     onPressed: () {
-                      Navigator.of(context).pushNamed('/home');
+                      Navigator.of(context).pushReplacementNamed('/home');
                     },
                   ),
                 ),
@@ -227,7 +227,7 @@ class SignUpForm extends StatelessWidget {
                         primary: Colors.indigo[900],
                         padding: EdgeInsets.symmetric(vertical: 20)),
                     onPressed: () {
-                      Navigator.of(context).pushNamed('/home');
+                      changeForm('login');
                     },
                   ),
                 ),
