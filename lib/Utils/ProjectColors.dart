@@ -15,3 +15,11 @@ import 'package:flutter/material.dart';
   indigo() {
     return Colors.indigo[900];
   }
+
+  navBar() {
+    return Color(0xff0B265C);
+  }
+
+  cardBackground() {
+    return Color(0xffcce4fb);
+  }
