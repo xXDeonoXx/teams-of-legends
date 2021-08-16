@@ -1,9 +1,16 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:teams_of_legends/screens/Find/player_info.dart';
+import 'package:teams_of_legends/screens/Find/team_info.dart';
 import 'package:teams_of_legends/widgets/player_card.dart';
+import 'package:teams_of_legends/widgets/team_card.dart';
+
 import '../../Utils/ProjectColors.dart' as ProjectColors;
 
 class FindPage extends StatefulWidget {
-  const FindPage({Key? key}) : super(key: key);
+  final String type;
+  const FindPage({Key? key, required this.type}) : super(key: key);
 
   @override
   _FindPageState createState() => _FindPageState();
@@ -41,11 +48,87 @@ class _FindPageState extends State<FindPage> {
     'All Day',
   ];
 
+  List<PlayerInfo> players = [
+    PlayerInfo(
+        'xXDeonoXx',
+        'Gold',
+        'Ahri, Zoe, Caitlyn',
+        'Brazilian player that loves\nto play mid lane and\nmage champions',
+        'https://loremflickr.com/250/250/profile,fox',
+        'Middle'),
+    PlayerInfo(
+        'xXDeonoXx',
+        'Gold',
+        'Ahri, Zoe, Caitlyn',
+        'Brazilian player that loves\nto play mid lane and\nmage champions',
+        'https://loremflickr.com/250/250/profile,bird',
+        'Middle'),
+    PlayerInfo(
+        'xXDeonoXx',
+        'Gold',
+        'Ahri, Zoe, Caitlyn',
+        'Brazilian player that loves\nto play mid lane and\nmage champions',
+        'https://loremflickr.com/250/250/profile,dog',
+        'Middle'),
+    PlayerInfo(
+        'xXDeonoXx',
+        'Gold',
+        'Ahri, Zoe, Caitlyn',
+        'Brazilian player that loves\nto play mid lane and\nmage champions',
+        'https://loremflickr.com/250/250/profile,flower',
+        'Middle'),
+    PlayerInfo(
+        'xXDeonoXx',
+        'Gold',
+        'Ahri, Zoe, Caitlyn',
+        'Brazilian player that loves\nto play mid lane and\nmage champions',
+        'https://loremflickr.com/250/250/profile,gamer',
+        'Middle'),
+  ];
+
+  List<TeamInfo> teams = [
+    TeamInfo(
+      'Hero Warriors',
+      'Midlane, Carry',
+      'Somo mais que um time, \nsomos uma família, \njogamos todas as tardes\ne noites',
+      'https://loremflickr.com/250/250/profile,gamer',
+      'Casual',
+    ),
+    TeamInfo(
+      'Hero Warriors',
+      'Midlane, Carry',
+      'Somo mais que um time, \nsomos uma família, \njogamos todas as tardes\ne noites',
+      'https://loremflickr.com/250/250/profile,gamer',
+      'Casual',
+    ),
+    TeamInfo(
+      'Hero Warriors',
+      'Midlane, Carry',
+      'Somo mais que um time, \nsomos uma família, \njogamos todas as tardes\ne noites',
+      'https://loremflickr.com/250/250/profile,gamer',
+      'Casual',
+    ),
+    TeamInfo(
+      'Hero Warriors',
+      'Midlane, Carry',
+      'Somo mais que um time, \nsomos uma família, \njogamos todas as tardes\ne noites',
+      'https://loremflickr.com/250/250/profile,gamer',
+      'Casual',
+    ),
+    TeamInfo(
+      'Hero Warriors',
+      'Midlane, Carry',
+      'Somo mais que um time, \nsomos uma família, \njogamos todas as tardes\ne noites',
+      'https://loremflickr.com/250/250/profile,gamer',
+      'Casual',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Find a player'),
+        title: Text('Find a ' + widget.type),
         backgroundColor: ProjectColors.indigo(),
       ),
       body: GestureDetector(
@@ -60,7 +143,7 @@ class _FindPageState extends State<FindPage> {
                 height: 37,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
+                padding: const EdgeInsets.only(left: 12, right: 12, bottom: 15),
                 child: SizedBox(
                   height: 36,
                   child: Row(
@@ -160,13 +243,28 @@ class _FindPageState extends State<FindPage> {
                   ),
                 ),
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
-                child: Column(
-                  children: [
-                    PlayerCard(),
-                  ],
+              Expanded(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 10),
+                    child: Column(
+                      children: widget.type == 'player'
+                          ? players
+                              .map<Padding>((PlayerInfo info) => Padding(
+                                    padding: const EdgeInsets.only(bottom: 10),
+                                    child: PlayerCard(info: info),
+                                  ))
+                              .toList()
+                          : teams
+                              .map<Padding>((TeamInfo info) => Padding(
+                                    padding: const EdgeInsets.only(bottom: 10),
+                                    child: TeamCard(info: info),
+                                  ))
+                              .toList(),
+                    ),
+                  ),
                 ),
               ),
             ],

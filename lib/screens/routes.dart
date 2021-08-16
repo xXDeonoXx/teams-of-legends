@@ -14,8 +14,17 @@ class RouteGenerator {
       case '/home':
         return MaterialPageRoute(builder: (_) => HomePage());
 
-      case '/find':
-        return MaterialPageRoute(builder: (_) => FindPage());
+      case '/find-players':
+        return MaterialPageRoute(
+            builder: (_) => FindPage(
+                  type: 'player',
+                ));
+
+      case '/find-teams':
+        return MaterialPageRoute(
+            builder: (_) => FindPage(
+                  type: 'team',
+                ));
 
       case '/invites':
         return MaterialPageRoute(builder: (_) => InvitesPage());
