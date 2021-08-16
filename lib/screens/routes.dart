@@ -3,6 +3,8 @@ import 'package:teams_of_legends/screens/Find/find_page.dart';
 import 'package:teams_of_legends/screens/Home/home_page.dart';
 import 'package:teams_of_legends/screens/Invites/invites_page.dart';
 import 'package:teams_of_legends/screens/Login/login_page.dart';
+import 'package:teams_of_legends/screens/RegisterPlayer/register_player.dart';
+import 'package:teams_of_legends/screens/RegisterTeams/register_team.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -28,6 +30,13 @@ class RouteGenerator {
 
       case '/invites':
         return MaterialPageRoute(builder: (_) => InvitesPage());
+
+      case '/register-player':
+        return MaterialPageRoute(builder: (_) => RegisterPlayer());
+
+
+      case '/register-team':
+        return MaterialPageRoute(builder: (_) => RegisterTeam());
 
       default:
         return _errorRoute();
