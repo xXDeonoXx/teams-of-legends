@@ -8,50 +8,6 @@ class InvitesPage extends StatefulWidget {
   _InvitesPageState createState() => _InvitesPageState();
 }
 
-class NothingToShow extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          image:
-              DecorationImage(image: AssetImage('assets/images/sad_amumu.png')),
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                ProjectColors.darkerBlue(),
-                ProjectColors.lightBlue(),
-              ],
-              stops: [
-                0.6,
-                0.9,
-              ])),
-      child: Stack(children: [
-        Align(
-          alignment: Alignment(0.1, 0.5),
-          child: Text('It feels like you are alone here.',
-              style: TextStyle(
-                fontSize: 22,
-                color: Colors.white,
-              )),
-        ),
-        Align(
-          alignment: Alignment(0.1, 0.6),
-          child: Text('Find a team!',
-              style: TextStyle(
-                  shadows: [Shadow(color: Colors.white, offset: Offset(0, -5))],
-                  fontSize: 22,
-                  color: Colors.transparent,
-                  fontWeight: FontWeight.w600,
-                  decoration: TextDecoration.underline,
-                  decorationThickness: 2,
-                  decorationColor: Colors.white)),
-        )
-      ]),
-    );
-  }
-}
-
 class InvitesFeed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -206,8 +162,26 @@ class _InvitesPageState extends State<InvitesPage> {
           )
         ],
       ),
-      body: NothingToShow(),
+      body: InvitesFeed(),
       bottomNavigationBar: BottomNavigationBar(
+        onTap: (int index) {
+          switch (index) {
+            case 0:
+              Navigator.of(context).pushReplacementNamed('/invites-no-invite');
+              break;
+
+            case 1:
+              Navigator.of(context).pushReplacementNamed('/invites');
+              break;
+
+            case 2:
+              Navigator.of(context).pushReplacementNamed('/');
+              break;
+
+            default:
+              Navigator.of(context).pushReplacementNamed('/invites');
+          }
+        },
         showSelectedLabels: false,
         showUnselectedLabels: false,
         backgroundColor: ProjectColors.navBar(),

@@ -131,6 +131,45 @@ class _FindPageState extends State<FindPage> {
         title: Text('Find a ' + widget.type),
         backgroundColor: ProjectColors.indigo(),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (int index) {
+          switch (index) {
+            case 0:
+              Navigator.of(context).pushReplacementNamed('/invites-no-invite');
+              break;
+
+            case 1:
+              Navigator.of(context).pushReplacementNamed('/invites');
+              break;
+
+            case 2:
+              Navigator.of(context).pushReplacementNamed('/');
+              break;
+
+            default:
+              Navigator.of(context).pushReplacementNamed('/invites');
+          }
+        },
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        backgroundColor: ProjectColors.navBar(),
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.message),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.power_settings_new),
+            label: '',
+          ),
+        ],
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white,
+      ),
       body: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
         child: Container(

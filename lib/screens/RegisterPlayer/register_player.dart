@@ -72,184 +72,189 @@ class _RegisterPlayerState extends State<RegisterPlayer> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    ProjectColors.darkerBlue(),
-                    ProjectColors.lightBlue(),
-                  ],
+                ProjectColors.darkerBlue(),
+                ProjectColors.lightBlue(),
+              ],
                   stops: [
-                    0.6,
-                    0.9,
-                  ])
-          ),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 37,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: SizedBox(
-                  height: 720,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: NetworkImage(
-                                    'https://i.imgur.com/BoN9kdC.png'))),
-                      ),
-                      Flexible(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'Nickname',
-                            filled: true,
-                            fillColor: Colors.white,
-                            isDense: true,
-                            contentPadding: EdgeInsets.all(12),
+                0.6,
+                0.9,
+              ])),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: SizedBox(
+                      height: 720,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Container(
+                            width: 100,
+                            height: 100,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: NetworkImage(
+                                        'https://i.imgur.com/BoN9kdC.png'))),
                           ),
-                          style: const TextStyle(color: Colors.black),
-                        ),
-                      ),
-                      Flexible(
-                        child: DropdownButton<String>(
-                          value: country,
-                          icon: const Icon(Icons.arrow_drop_down_sharp),
-                          iconSize: 24,
-                          elevation: 16,
-                          style: const TextStyle(color: Colors.white),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.white,
+                          Flexible(
+                            child: TextField(
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'Nickname',
+                                filled: true,
+                                fillColor: Colors.white,
+                                isDense: true,
+                                contentPadding: EdgeInsets.all(12),
+                              ),
+                              style: const TextStyle(color: Colors.black),
+                            ),
                           ),
-                          dropdownColor: ProjectColors.teal(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              country = newValue!;
-                            });
-                          },
-                          items: possibleCountries
-                              .map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                        ),
-                      ),
-                      Flexible(
-                        child: DropdownButton<String>(
-                          value: tier,
-                          icon: const Icon(Icons.arrow_drop_down_sharp),
-                          iconSize: 24,
-                          elevation: 16,
-                          style: const TextStyle(color: Colors.white),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.white,
+                          Flexible(
+                            child: DropdownButton<String>(
+                              value: country,
+                              icon: const Icon(Icons.arrow_drop_down_sharp),
+                              iconSize: 24,
+                              elevation: 16,
+                              style: const TextStyle(color: Colors.white),
+                              underline: Container(
+                                height: 2,
+                                color: Colors.white,
+                              ),
+                              dropdownColor: ProjectColors.teal(),
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  country = newValue!;
+                                });
+                              },
+                              items: possibleCountries
+                                  .map<DropdownMenuItem<String>>(
+                                      (String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                            ),
                           ),
-                          dropdownColor: ProjectColors.teal(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              tier = newValue!;
-                            });
-                          },
-                          items: possibleTiers
-                              .map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                        ),
-                      ),
-                      Flexible(
-                        child: DropdownButton<String>(
-                          value: lane,
-                          icon: const Icon(Icons.arrow_drop_down_sharp),
-                          iconSize: 24,
-                          elevation: 16,
-                          style: const TextStyle(color: Colors.white),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.white,
+                          Flexible(
+                            child: DropdownButton<String>(
+                              value: tier,
+                              icon: const Icon(Icons.arrow_drop_down_sharp),
+                              iconSize: 24,
+                              elevation: 16,
+                              style: const TextStyle(color: Colors.white),
+                              underline: Container(
+                                height: 2,
+                                color: Colors.white,
+                              ),
+                              dropdownColor: ProjectColors.teal(),
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  tier = newValue!;
+                                });
+                              },
+                              items: possibleTiers
+                                  .map<DropdownMenuItem<String>>(
+                                      (String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                            ),
                           ),
-                          dropdownColor: ProjectColors.teal(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              lane = newValue!;
-                            });
-                          },
-                          items: possibleLanes
-                              .map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                        ),
-                      ),
-                      DropdownButton<String>(
-                        value: availability,
-                        icon: const Icon(Icons.arrow_drop_down_sharp),
-                        iconSize: 24,
-                        elevation: 16,
-                        style: const TextStyle(color: Colors.white),
-                        underline: Container(
-                          height: 2,
-                          color: Colors.white,
-                        ),
-                        dropdownColor: ProjectColors.teal(),
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            availability = newValue!;
-                          });
-                        },
-                        items: possibleAvailability
-                            .map<DropdownMenuItem<String>>((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                      ),
-                      Flexible(
-                        child: TextField(
-                          minLines: 8,
-                          maxLines: 12,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'Bio',
-                            filled: true,
-                            fillColor: Colors.white,
-                            isDense: true,
-                            contentPadding: EdgeInsets.all(12),
+                          Flexible(
+                            child: DropdownButton<String>(
+                              value: lane,
+                              icon: const Icon(Icons.arrow_drop_down_sharp),
+                              iconSize: 24,
+                              elevation: 16,
+                              style: const TextStyle(color: Colors.white),
+                              underline: Container(
+                                height: 2,
+                                color: Colors.white,
+                              ),
+                              dropdownColor: ProjectColors.teal(),
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  lane = newValue!;
+                                });
+                              },
+                              items: possibleLanes
+                                  .map<DropdownMenuItem<String>>(
+                                      (String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                            ),
                           ),
-                          style: const TextStyle(color: Colors.black),
-                        ),
+                          DropdownButton<String>(
+                            value: availability,
+                            icon: const Icon(Icons.arrow_drop_down_sharp),
+                            iconSize: 24,
+                            elevation: 16,
+                            style: const TextStyle(color: Colors.white),
+                            underline: Container(
+                              height: 2,
+                              color: Colors.white,
+                            ),
+                            dropdownColor: ProjectColors.teal(),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                availability = newValue!;
+                              });
+                            },
+                            items: possibleAvailability
+                                .map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                          ),
+                          Flexible(
+                            child: TextField(
+                              minLines: 8,
+                              maxLines: 12,
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: 'Bio',
+                                filled: true,
+                                fillColor: Colors.white,
+                                isDense: true,
+                                contentPadding: EdgeInsets.all(12),
+                              ),
+                              style: const TextStyle(color: Colors.black),
+                            ),
+                          ),
+                          Flexible(
+                            child: ElevatedButton(
+                              child: Text('Save'),
+                              style: ElevatedButton.styleFrom(
+                                  primary: ProjectColors.indigo(),
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 20, horizontal: 80)),
+                              onPressed: () {
+                                Navigator.of(context)
+                                    .pushReplacementNamed('/find-teams');
+                              },
+                            ),
+                          ),
+                        ],
                       ),
-                      Flexible(
-                        child: ElevatedButton(
-                          child: Text('Save'),
-                          style: ElevatedButton.styleFrom(
-                              primary: ProjectColors.indigo(),
-                              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 80)),
-                          onPressed: () {
-                            Navigator.of(context).pushReplacementNamed('/home');
-                          },
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
+                ],
               ),
-
-            ],
+            ),
           ),
         ),
       ),
