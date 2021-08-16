@@ -60,7 +60,8 @@ class PickaProfileType extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                           primary: Colors.indigo[900],
                           padding: EdgeInsets.symmetric(vertical: 20)),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pushReplacementNamed('/register-team');},
                     ),
                   ),
                   SizedBox(
@@ -72,7 +73,9 @@ class PickaProfileType extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                           primary: Colors.indigo[900],
                           padding: EdgeInsets.symmetric(vertical: 20)),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pushReplacementNamed('/register-player');
+                        },
                     ),
                   ),
                 ],
